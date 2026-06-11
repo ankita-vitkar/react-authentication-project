@@ -78,5 +78,10 @@ export default defineConfig([
 >>>>>>> 75ef69c8d0f8a45745dd87fe6219be08580514c1
 =======
 <img width="1222" height="807" alt="Screenshot 2026-06-11 140848" src="https://github.com/user-attachments/assets/5a175e3f-ddf1-45a4-b4aa-caec3a6fe40d" />
+<img width="1911" height="864" alt="Screenshot 2026-06-11 141042" src="https://github.com/user-attachments/assets/c34332a1-ba63-461d-9b78-96fedd83c1c1" />
+<img width="1897" height="626" alt="Screenshot 2026-06-11 142408" src="https://github.com/user-attachments/assets/58c804f0-34c0-4bab-89f4-1313c46cbb9f" />
+<img width="1863" height="875" alt="Screenshot 2026-06-11 142430" src="https://github.com/user-attachments/assets/5108812f-0a49-4e6e-8d40-6653d6991981" />
+
+
 
 >>>>>>> 99b8be35da19e6b9ae8b073bdf708f4e3c89f8e5
