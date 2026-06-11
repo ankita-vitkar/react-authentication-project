@@ -1,4 +1,5 @@
 import axios from "axios";
+import { clearSession } from "../auth/session";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || "https://reqres.in/api",
@@ -22,7 +23,7 @@ api.interceptors.response.use(
     const status = error?.response?.status;
 
     if (status === 401 || status === 403) {
-      localStorage.removeItem("accessToken");
+      clearSession();
       window.location.assign("/");
     }
 

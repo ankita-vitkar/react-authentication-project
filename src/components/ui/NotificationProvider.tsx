@@ -29,7 +29,13 @@ export function NotificationProvider({ children }: { children: React.ReactNode }
     <NotificationContext.Provider value={value}>
       {children}
       <Snackbar open={open} autoHideDuration={4000} onClose={() => setOpen(false)}>
-        <Alert onClose={() => setOpen(false)} severity={severity} sx={{ width: "100%" }}>
+        <Alert
+          onClose={() => setOpen(false)}
+          severity={severity}
+          sx={{ width: "100%" }}
+          role="status"
+          aria-live="polite"
+        >
           {message}
         </Alert>
       </Snackbar>

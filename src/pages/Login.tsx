@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useMemo, useState } from "react";
 import {
   Box,
   Button,
@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { useNotification } from "../components/ui/NotificationProvider";
 import api from "../services/api";
+import { saveSession } from "../auth/session";
 import { getApiErrorMessage } from "../utils/apiError";
 
 interface Props {
@@ -21,7 +22,10 @@ export default function Login({ onLogin }: Props) {
   const [password, setPassword] = useState("cityslicka");
   const [error, setError] = useState("");
 
-  const isDemoLogin = email.trim().toLowerCase() === "eve.holt@reqres.in" && password === "cityslicka";
+  const isDemoLogin = useMemo(
+    () => email.trim().toLowerCase() === "eve.holt@reqres.in" && password === "cityslicka",
+    [email, password]
+  );
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -35,7 +39,7 @@ export default function Login({ onLogin }: Props) {
       setError("");
 
       if (isDemoLogin) {
-        localStorage.setItem("accessToken", "demo-session-token");
+        saveSession("demo-session-token", "admin");
         showNotification({ message: "Signed in successfully", severity: "success" });
         onLogin();
         return;
@@ -48,7 +52,7 @@ export default function Login({ onLogin }: Props) {
         throw new Error("No authentication token returned by the server.");
       }
 
-      localStorage.setItem("accessToken", token);
+      saveSession(token, email.toLowerCase().includes("admin") ? "admin" : "user");
       showNotification({ message: "Signed in successfully", severity: "success" });
       onLogin();
     } catch (err) {
@@ -88,6 +92,8 @@ export default function Login({ onLogin }: Props) {
             onChange={(event) => setEmail(event.target.value)}
             fullWidth
             margin="normal"
+            autoComplete="email"
+            slotProps={{ htmlInput: { "aria-label": "Email address" } }}
           />
 
           <TextField
@@ -97,6 +103,8 @@ export default function Login({ onLogin }: Props) {
             onChange={(event) => setPassword(event.target.value)}
             fullWidth
             margin="normal"
+            autoComplete="current-password"
+            slotProps={{ htmlInput: { "aria-label": "Password" } }}
           />
 
           {error ? (

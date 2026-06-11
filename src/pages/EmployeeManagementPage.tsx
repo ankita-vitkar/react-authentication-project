@@ -14,13 +14,13 @@ export default function EmployeeManagementPage({ onLogout }: Props) {
           <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 700 }}>
             Employee Hub
           </Typography>
-          <Button component={RouterLink} to="/dashboard" variant="outlined">
+          <Button component={RouterLink} to="/dashboard" variant="outlined" aria-label="Return to dashboard">
             Dashboard
           </Button>
-          <Button component={RouterLink} to="/employees" variant="contained">
+          <Button component={RouterLink} to="/employees" variant="contained" aria-label="Stay on employees page">
             Employees
           </Button>
-          <Button color="error" variant="contained" onClick={onLogout}>
+          <Button color="error" variant="contained" onClick={onLogout} aria-label="Log out of the application">
             Logout
           </Button>
         </Toolbar>

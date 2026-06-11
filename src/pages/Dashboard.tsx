@@ -30,13 +30,13 @@ export default function Dashboard({ onLogout }: Props) {
           <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 700 }}>
             Employee Management System
           </Typography>
-          <Button component={RouterLink} to="/dashboard" variant="contained">
+          <Button component={RouterLink} to="/dashboard" variant="contained" aria-label="Go to dashboard">
             Dashboard
           </Button>
-          <Button component={RouterLink} to="/employees" variant="outlined">
+          <Button component={RouterLink} to="/employees" variant="outlined" aria-label="Go to employees page">
             Employees
           </Button>
-          <Button variant="contained" color="error" onClick={onLogout}>
+          <Button variant="contained" color="error" onClick={onLogout} aria-label="Log out of the application">
             Logout
           </Button>
         </Toolbar>
