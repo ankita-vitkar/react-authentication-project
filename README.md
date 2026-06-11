@@ -71,7 +71,12 @@ export default defineConfig([
     },
   },
 ])
+<<<<<<< HEAD
 ```
 =======
 # Myproject
 >>>>>>> 75ef69c8d0f8a45745dd87fe6219be08580514c1
+=======
+<img width="1222" height="807" alt="Screenshot 2026-06-11 140848" src="https://github.com/user-attachments/assets/5a175e3f-ddf1-45a4-b4aa-caec3a6fe40d" />
+
+>>>>>>> 99b8be35da19e6b9ae8b073bdf708f4e3c89f8e5
